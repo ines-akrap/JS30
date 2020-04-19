@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    // start with strings, numbers and booleans => PASS BY VALUE 
+    const num1 = 100;
+    const num2 = num1;
+    console.log (num1, num2); // 100, 100
+    num1 = 400;
+    console.log (num1, num2); // 400, 100
+
+    // Let's say we have an array => PASS BY REFERENCE 
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // Copy array
+    const playersSlice = players.slice();
+    const playersConcat = players.concat(players);
+    const playersCopyES6 = [...players]; // <3
+
+    // The same thing goes for objects => PASS BY REFERENCE
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // Copy object
+    const personAssign = Object.assign({}, person, {number: 99});
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+  </script>
+
+</body>
+</html>
